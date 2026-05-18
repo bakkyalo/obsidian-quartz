@@ -29,13 +29,15 @@
 2 次の特殊ユニタリ群 $SU(2)$ は行列式 1 の 2 次ユニタリ行列全体の集合である。
 
 $$SU (2) = \{ g \in GL(2, \mathbb{C}) \mid g^\dagger g = I_2, \
-\det g = 1\}$$
+\det g = 1\}
+$$
 
 公式 $\det e^A = e^{\mathrm{Tr} (A)}$ により、 リー群 $SU (2)$ に付随するリー代数 $\mathfrak{su} (2)$ は、トレースがゼロの $2 \times 2$ 歪エルミート行列全体の集合となる。
 
 $$\mathfrak{su} (2) = \{ X \in \mathfrak{gl}(2, \mathbb{C}) \mid
 \mathrm{Tr} (X) = 0 ,
-X^\dagger + X = 0 \}$$
+X^\dagger + X = 0 \}
+$$
 
 一般に、トレースがゼロの $2\times 2$ の歪対称エルミート行列 $X \in \mathfrak{su} (2)$ は $a, b, c \in \mathbb{R}$ を任意の **実数** として
 $$
