@@ -1,9 +1,9 @@
 # リー代数の表現論
 
-## 表現
-
+## リー代数と表現
 
 > **定義 (リー代数)**
+>
 > $\mathfrak{g}$ が有限次元リー代数であるとは、$\mathfrak{g}$ がある $\underline{\text{体} \, K}$ 上の有限次元ベクトル空間であって、以下を満たす二項演算 $[\cdot, \cdot] : \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ が定義されていることをいう。
 >
 > 1. **双線形性 (bilinear)**
@@ -31,7 +31,7 @@
 - $[\cdot, \cdot]$ を **括弧積**、**リーブラケット** などと呼ぶ事もある。
 - 歪対称性から $[X, X] = 0 \quad (\forall X \in \mathfrak{g})$ も分かる。
 - 係数体 $K$ が実数体 $\mathbb{R}$ であるときは **実リー代数**、複素数体 $\mathbb{C}$ であるときは **複素リー代数** と呼ぶ。
-- 物理でよく出てくる $[X, Y] = XY- YX$ は、$\mathfrak{g}$ の元に別途 "ふつうの積" が定義された **普遍包絡代数** *(universal enveloping algebra)* での話。
+- 物理でよく出てくる $[X, Y] = XY- YX$ は、$\mathfrak{g}$ の元に別途 "ふつうの積" が定義された **普遍包絡代数** *(universal enveloping algebra)* での話。今回はそこでの話はしない。
 
 > **定義 (表現)**
 > $\mathfrak{g}$ をリー代数、$V$ を $\mathbb{C}$ 上ベクトル空間とする。
@@ -54,7 +54,7 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 > \mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C} = \mathfrak{g} \oplus i \mathfrak{g}
 > $$
 > は $\mathbb{C}$ 上ベクトル空間となり、括弧積 $[\cdot, \cdot]$ を適当に定義することにより複素リー代数になる。
-> この $\mathfrak{g}_\mathbb{C}$ を $\mathfrak{g}$ の **複素化** *(complexification)* といい、逆に $\mathfrak{g}$ を $\mathfrak{g}_\mathbb{C}$ の **実形 ** *(real form)* という。
+> この $\mathfrak{g}_\mathbb{C}$ を $\mathfrak{g}$ の **複素化** *(complexification)* といい、逆に $\mathfrak{g}$ を $\mathfrak{g}_\mathbb{C}$ の **実形** *(real form)* という。
 
 - 言い換えると、$X, Y \in \mathfrak{g}$ に対して $X + iY \in \mathfrak{g}_\mathbb{C}$ を対応させるということ。
 - 「適当」 の意味は括弧積 $[\cdot, \cdot]$ が普通の複素数の計算に従う $\mathbb{C}$-双線形形式になってくれるよう要請するという意味であって、式で書くと以下のように定義するということ。
@@ -99,8 +99,31 @@ $$
 
 ## ルート系
 
-ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるベクトル空間の一般論について議論する。
-後に、複素半単純リー代数から「ルート系」を構成することができることを述べていくが、先に「ルート系」の特徴を探っておこうという訳である。
+ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるある特別なベクトル空間の一般論について議論する。
+後に、複素半単純リー代数から「ルート系」を構成していく様を述べていくが、その前に先に「ルート系」の特徴を探っておこうという訳である。
+
+> **定義 (ルート系)**
+>
+>  $V$ を内積 $(\cdot, \cdot)$ が定義された <u>有限次元実</u>ベクトル空間とする。
+> $V$ の<u>有限</u>部分集合 $\Phi$  が以下の条件をすべて満たす時、$(V, \Phi)$  は **ルート系** *(root system)* であるという。
+>
+> 0. (非零)：$\Phi$ は $0$ ベクトルを含まない。
+> 1. $\Phi$ は $V$ を張る。
+> 2. (スカラー倍の制限)：$\alpha \in \Phi$ であるならば、$\alpha$ の定数倍で $\Phi$ に含まれるのは $\alpha$ と $-\alpha$ のみである。
+> 3. (鏡映閉包性)：任意の $\alpha \in \Phi$ に直交する超平面に関する鏡映 $s_\alpha$
+> $$
+> s_\alpha (x) = x - 2 \frac{(x, \alpha)}{(\alpha, \alpha)} \alpha
+> \quad (x \in V)
+> $$
+> は、$\Phi$ 全体を $\Phi$ 自身に写す。
+> 4. (結晶基底条件)：任意の $\alpha, \beta \in \Phi$ について
+> $$
+> \langle \beta, \alpha \rangle \coloneqq 2 \frac{(\beta, \alpha)}{(\alpha, \alpha)}
+> $$
+> は整数である。
+
+- 単に $\Phi$ をルート系と呼ぶ事もある。当たり前だが $\Phi$ は単なる $V$ の部分集合であって、部分空間 (ベクトル空間) ではない。
+- $\Phi$ の元を **ルート** *(roots)* と呼ぶ。
 
 ## ワイルの指標公式
 
