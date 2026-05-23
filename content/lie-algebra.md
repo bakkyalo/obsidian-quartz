@@ -99,8 +99,8 @@ $$
 
 ## ルート系
 
-ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるある特別なベクトル空間の一般論について議論する。
-後に、複素半単純リー代数から「ルート系」を構成していく様を述べていくが、その前に先に「ルート系」の特徴を探っておこうという訳である。
+ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるある特別なベクトルの集合について議論する。
+後に、複素半単純リー代数から「ルート系」を構成していく様を述べていくが、その前に先に一般トンとして「ルート系」の特徴を探っておこうという訳である。
 
 > **定義 (ルート系)**
 >
@@ -124,6 +124,12 @@ $$
 
 - 単に $\Phi$ をルート系と呼ぶ事もある。当たり前だが $\Phi$ は単なる $V$ の部分集合であって、部分空間 (ベクトル空間) ではない。
 - $\Phi$ の元を **ルート** *(roots)* と呼ぶ。
+- $V$ の次元 $\dim V$ をルート系の **階数** (あるいはランク *rank*) という。
+- 鏡映 $\{ s_\alpha \}_{\alpha\in\Phi}$ が生成する $V$ の直交群 $O(V)$ の部分群 $W$
+$$
+W \coloneqq \langle \{ s_\alpha \mid \alpha\in \Phi \} \rangle \subset O(V)
+$$
+ を $\Phi$ の **ワイル群** *(Weyl group)* と呼ぶ。
 
 ## ワイルの指標公式
 
@@ -192,3 +198,9 @@ $$
 
 - ワイル群 $W$ は $W = \{ +1, -1 \}$
 
+
+## 参考
+
+- [Brian C. Hall (2015). _Lie Groups, Lie Algebras, and Representations : An Elementary Introduction. Second Edition._.  Springer.](https://link.springer.com/book/10.1007/978-3-319-13467-3#author-0-0)
+
+- [リー代数 - YouTube](https://www.youtube.com/playlist?list=PLx3dFfRgOu4S1hzgMIa3V_jF3fuzKshx6)
