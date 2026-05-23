@@ -3,17 +3,25 @@
 ## 表現
 
 
-> ** 定義 (リー代数) **
+> **定義 (リー代数)**
 > $\mathfrak{g}$ が有限次元リー代数であるとは、$\mathfrak{g}$ がある $\underline{\text{体} \, K}$ 上の有限次元ベクトル空間であって、以下を満たす二項演算 $[\cdot, \cdot] : \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ が定義されていることをいう。
 > 1. **双線形性 (bilinear)**
+>
 > 任意の $\underline{a, b \in K}$ と $X, Y, Z \in \mathfrak{g}$ に対して
+>
 > $$[aX + bY, Z] = a [X, Z] + b[Y, Z]$$
+>
 > $$[Z, aX + bY] = a [Z, X] + b[Z, Y]$$
 > 2. **歪対称性 (skew symmetric)**
+>
 >任意の $X, Y \in \mathfrak{g}$ に対して
+>
 >$$[X, Y] = -[Y, X]$$
+>
 > 3. **ヤコビ恒等式 (Jacobi identity)**
+>
 >任意の $X, Y, Z \in \mathfrak{g}$ に対して
+>
 > $$[X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0$$
 
 - $[\cdot, \cdot]$ を **括弧積**、**リーブラケット** などと呼ぶ事もある。
@@ -36,8 +44,11 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 そこで、以下に示す所定の手続きにより係数体を複素数に拡張することがよく (あるいは暗黙のうちに) 行われる。
 
 > **複素化 (complexification)**
+>
 > $\mathfrak{g}$ を実リー代数とすると
+>
 > $$\mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C}$$
+>
 > は $\mathbb{C}$ 上ベクトル空間となり、括弧積 $[\cdot, \cdot]$ を適当に定義することにより複素リー代数になる。
 
 - 言い換えると、$X, Y \in \mathfrak{g}$ に対して $X + iY \in \mathfrak{g}_\mathbb{C}$ を対応させるということ。
