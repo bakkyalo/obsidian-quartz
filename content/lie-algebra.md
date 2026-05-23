@@ -8,21 +8,27 @@
 > 1. **双線形性 (bilinear)**
 >
 > 任意の $\underline{a, b \in K}$ と $X, Y, Z \in \mathfrak{g}$ に対して
+> $$
+> [aX + bY, Z] = a [X, Z] + b[Y, Z]
+> $$
 >
-> $$[aX + bY, Z] = a [X, Z] + b[Y, Z]$$
->
-> $$[Z, aX + bY] = a [Z, X] + b[Z, Y]$$
+> $$
+> [Z, aX + bY] = a [Z, X] + b[Z, Y]
+> $$
 > 2. **歪対称性 (skew symmetric)**
 >
 >任意の $X, Y \in \mathfrak{g}$ に対して
->
->$$[X, Y] = -[Y, X]$$
+>$$
+> [X, Y] = -[Y, X]
+> $$
 >
 > 3. **ヤコビ恒等式 (Jacobi identity)**
 >
 >任意の $X, Y, Z \in \mathfrak{g}$ に対して
 >
-> $$[X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0$$
+> $$
+> [X, [Y, Z]] + [Y, [Z, X]] + [Z, [X, Y]] = 0
+> $$
 
 - $[\cdot, \cdot]$ を **括弧積**、**リーブラケット** などと呼ぶ事もある。
 - 歪対称性から $[X, X] = 0 \quad (\forall X \in \mathfrak{g})$ も分かる。
@@ -32,7 +38,8 @@
 > **定義 (表現)**
 > $\mathfrak{g}$ をリー代数、$V$ を $\mathbb{C}$ 上ベクトル空間とする。
 > $(\pi, V)$ が $\mathfrak{g}$ の **表現** であるとは、線形写像 $\pi : \mathfrak{g} \to \mathfrak{gl} (V)$  が括弧積について準同型であることをいう。
-> $$\forall X, Y \in \mathfrak{g} \text{に対して} \,
+> $$
+> \forall X, Y \in \mathfrak{g} \text{に対して} \,
 > \pi ([X, Y]) = [\pi(X), \pi(Y)]
 > $$
 > このとき、$V$ を **表現空間** という。
@@ -46,9 +53,9 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 > **複素化 (complexification)**
 >
 > $\mathfrak{g}$ を実リー代数とすると
->
-> $$\mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C}$$
->
+> $$
+> \mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C}
+> $$
 > は $\mathbb{C}$ 上ベクトル空間となり、括弧積 $[\cdot, \cdot]$ を適当に定義することにより複素リー代数になる。
 
 - 言い換えると、$X, Y \in \mathfrak{g}$ に対して $X + iY \in \mathfrak{g}_\mathbb{C}$ を対応させるということ。
@@ -71,13 +78,15 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 
 2 次の特殊ユニタリ群 $SU(2)$ は行列式 1 の 2 次ユニタリ行列全体の集合である。
 
-$$SU (2) = \{ g \in GL(2, \mathbb{C}) \mid g^\dagger g = I_2, \
+$$
+SU (2) = \{ g \in GL(2, \mathbb{C}) \mid g^\dagger g = I_2, \
 \det g = 1\}
 $$
 
 公式 $\det e^A = e^{\mathrm{Tr} (A)}$ により、 リー群 $SU (2)$ に付随するリー代数 $\mathfrak{su} (2)$ は、トレースがゼロの $2 \times 2$ 歪エルミート行列全体の集合となる。
 
-$$\mathfrak{su} (2) = \{ X \in \mathfrak{gl}(2, \mathbb{C}) \mid
+$$
+\mathfrak{su} (2) = \{ X \in \mathfrak{gl}(2, \mathbb{C}) \mid
 \mathrm{Tr} (X) = 0 ,
 X^\dagger + X = 0 \}
 $$
