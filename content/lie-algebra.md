@@ -51,12 +51,18 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 >
 > $\mathfrak{g}$ を実リー代数とすると
 > $$
-> \mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C}
+> \mathfrak{g}_{\mathbb{C}} \coloneqq \mathfrak{g} \otimes_{\mathbb{R}} \mathbb{C} = \mathfrak{g} \oplus i \mathfrak{g}
 > $$
 > は $\mathbb{C}$ 上ベクトル空間となり、括弧積 $[\cdot, \cdot]$ を適当に定義することにより複素リー代数になる。
+> この $\mathfrak{g}_\mathbb{C}$ を $\mathfrak{g}$ の **複素化** *(complexification)* といい、逆に $\mathfrak{g}$ を $\mathfrak{g}_\mathbb{C}$ の **実形 ** *(real form)* という。
 
 - 言い換えると、$X, Y \in \mathfrak{g}$ に対して $X + iY \in \mathfrak{g}_\mathbb{C}$ を対応させるということ。
-- 「適当」 の意味や詳細は各教科書をあたってほしいが、要は複素数の普通の計算ができてほしいという要請をするということ。
+- 「適当」 の意味は括弧積 $[\cdot, \cdot]$ が普通の複素数の計算に従う $\mathbb{C}$-双線形形式になってくれるよう要請するという意味であって、式で書くと以下のように定義するということ。
+$$
+[X_1 + i Y_1, X_2 + i Y_2]
+\coloneqq ([X_1, X_2] - [Y_1, Y_2] ) + i ([X_1, X_2] + [Y_1, X_2])
+\quad \text{for all} \, X_1, X_2, Y_1, Y_2 \in \mathfrak{g}
+$$
 
 #### 例1: 一般線形リー代数 $\mathfrak{gl} (n, \mathbb{R})$
 
@@ -87,13 +93,8 @@ $$
 $$
 
 例3, 4 で見たように、異なるリー代数 $\mathfrak{su} (n), \mathfrak{sl} (n, \mathbb{R})$ の複素化が、同じリー代数 $\mathfrak{sl} (n, \mathbb{C})$ と同型になることもある。
-このように、複素化する前の $\mathfrak{su} (n)$ と $\mathfrak{sl} (n, \mathbb{R})$ は、$\mathfrak{sl} (n, \mathbb{C})$ の **実形** であるという。
 
-> **定義 (実形)**
->
-> ある複素リー代数 $\mathfrak{g}_\mathbb{C}$ に対し、複素化すると $\mathfrak{g}_{\mathbb{C}}$ と同型になるような元の実リー代数 $\mathfrak{g}$ のことを、$\mathfrak{g}_\mathbb{C}$ の **実形** *(Real Form)* と呼ぶ。
-
-- 例えば $\mathfrak{su} (n)$ と $\mathfrak{sl} (n, \mathbb{R})$ はともに $\mathfrak{sl} (n, \mathbb{C})$ の実形である。
+すなわち、 $\mathfrak{su} (n)$ と $\mathfrak{sl} (n, \mathbb{R})$ はともに $\mathfrak{sl} (n, \mathbb{C})$ の実形である。
 
 
 ## ルート系
