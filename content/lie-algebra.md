@@ -5,8 +5,8 @@
 
 > **定義 (リー代数)**
 > $\mathfrak{g}$ が有限次元リー代数であるとは、$\mathfrak{g}$ がある $\underline{\text{体} \, K}$ 上の有限次元ベクトル空間であって、以下を満たす二項演算 $[\cdot, \cdot] : \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ が定義されていることをいう。
-> 1. **双線形性 (bilinear)**
 >
+> 1. **双線形性 (bilinear)**
 > 任意の $\underline{a, b \in K}$ と $X, Y, Z \in \mathfrak{g}$ に対して
 > $$
 > [aX + bY, Z] = a [X, Z] + b[Y, Z]
@@ -16,14 +16,12 @@
 > [Z, aX + bY] = a [Z, X] + b[Z, Y]
 > $$
 > 2. **歪対称性 (skew symmetric)**
->
 >任意の $X, Y \in \mathfrak{g}$ に対して
 >$$
 > [X, Y] = -[Y, X]
 > $$
 >
 > 3. **ヤコビ恒等式 (Jacobi identity)**
->
 >任意の $X, Y, Z \in \mathfrak{g}$ に対して
 >
 > $$
@@ -47,7 +45,6 @@
 ### 複素化
 
 $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要なものはたくさんあるが、数学では複素リー代数を議論する方がより強力な示唆を得ることができる。
-
 そこで、以下に示す所定の手続きにより係数体を複素数に拡張することがよく (あるいは暗黙のうちに) 行われる。
 
 > **複素化 (complexification)**
@@ -60,6 +57,49 @@ $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要�
 
 - 言い換えると、$X, Y \in \mathfrak{g}$ に対して $X + iY \in \mathfrak{g}_\mathbb{C}$ を対応させるということ。
 - 「適当」 の意味や詳細は各教科書をあたってほしいが、要は複素数の普通の計算ができてほしいという要請をするということ。
+
+#### 例1: 一般線形リー代数 $\mathfrak{gl} (n, \mathbb{R})$
+
+一般線形リー代数 $\mathfrak{gl} (n, \mathbb{R})$ の複素化は、$\mathfrak{gl} (n, \mathbb{C})$ と同型である。
+$$
+\mathfrak{gl} (n, \mathbb{R})_{\mathbb{C}} \cong \mathfrak{gl(n, \mathbb{C})}
+$$
+
+#### 例2: 特殊直交リー代数 $\mathfrak{so} (n)$
+
+<u>実</u> 歪対称行列の集まりである特殊直交リー代数 $\mathfrak{so} (n)$ の複素化は、<u>複素</u> 歪対称行列の集まりである $\mathfrak{so} (n, \mathbb{C})$ と同型である。
+$$
+\mathfrak{so} (n)_{\mathbb{C}} \cong \mathfrak{so}(n, \mathbb{C})
+$$
+
+#### 例3: 特殊ユニタリリー代数 $\mathfrak{su} (n)$
+
+トレースゼロの歪エルミート行列の集まりである特殊ユニタリリー代数 $\mathfrak{su} (n)$ の複素化は、トレースゼロの任意の複素行列の集まりである $\mathfrak{sl} (n, \mathbb{C})$ と同型である。
+$$
+\mathfrak{su} (n)_{\mathbb{C}} \cong \mathfrak{sl}(n, \mathbb{C})
+$$
+
+#### 例4: 特殊線形リー代数 $\mathfrak{sl} (n, \mathbb{R})$
+
+トレースゼロの任意の実行列の集まりである特殊線形リー代数 $\mathfrak{sl} (n, \mathbb{R})$ の複素化は、先ほどの $\mathfrak{sl} (n, \mathbb{C})$ と同型である。
+$$
+\mathfrak{sl} (n, \mathbb{R})_{\mathbb{C}} \cong \mathfrak{sl}(n, \mathbb{C})
+$$
+
+例3, 4 で見たように、異なるリー代数 $\mathfrak{su} (n), \mathfrak{sl} (n, \mathbb{R})$ の複素化が、同じリー代数 $\mathfrak{sl} (n, \mathbb{C})$ と同型になることもある。
+このように、複素化する前の $\mathfrak{su} (n)$ と $\mathfrak{sl} (n, \mathbb{R})$ は、$\mathfrak{sl} (n, \mathbb{C})$ の **実形** であるという。
+
+> **定義 (実形)**
+>
+> ある複素リー代数 $\mathfrak{g}_\mathbb{C}$ に対し、複素化すると $\mathfrak{g}_{\mathbb{C}}$ と同型になるような元の実リー代数 $\mathfrak{g}$ のことを、$\mathfrak{g}_\mathbb{C}$ の **実形** *(Real Form)* と呼ぶ。
+
+- 例えば $\mathfrak{su} (n)$ と $\mathfrak{sl} (n, \mathbb{R})$ はともに $\mathfrak{sl} (n, \mathbb{C})$ の実形である。
+
+
+## ルート系
+
+ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるベクトル空間の一般論について議論する。
+後に、複素半単純リー代数から「ルート系」を構成することができることを述べていくが、先に「ルート系」の特徴を探っておこうという訳である。
 
 ## ワイルの指標公式
 
