@@ -1,6 +1,35 @@
 # リー代数の表現論
 
+## 復習
+
+### 内積
+
+実ベクトル空間における **内積** *(inner product)* とは、それが **正定値対称双線形形式** であるということである。
+
+> **定義 (実ベクトル空間における内積)**
+>
+> 実ベクトル空間 $V$ 上の二項演算 $\langle\cdot, \cdot \rangle : V \times V \to \mathbb{R}$ が内積であるとは、以下の条件を満たすこと。
+> 1. **正定値 (positive-definite)**
+> 任意の $x \in V$ について
+>     - $\langle x, x \rangle \geq 0$
+>     - $\langle x, x \rangle = 0 \iff x = 0$
+>
+> 2. **対称 (symmetric)**
+> 任意の $x, y \in V$ について
+>     - $\langle x, y \rangle = \langle y, x \rangle$
+>
+> 3. **双線形形式 (bilinear form)**
+> 任意の $a, b \in \mathbb{R}$ と $x, y, z \in V$ について
+>     - $\langle ax + by, z \rangle = a \langle x, z \rangle + b \langle y, z \rangle$
+
+「正定値対称双線形形式」と暗唱して覚えてしまうとよい。
+
+
+
+
 ## リー代数と表現
+
+### リー代数
 
 > **定義 (リー代数)**
 >
@@ -31,7 +60,12 @@
 - $[\cdot, \cdot]$ を **括弧積**、**リーブラケット** などと呼ぶ事もある。
 - 歪対称性から $[X, X] = 0 \quad (\forall X \in \mathfrak{g})$ も分かる。
 - 係数体 $K$ が実数体 $\mathbb{R}$ であるときは **実リー代数**、複素数体 $\mathbb{C}$ であるときは **複素リー代数** と呼ぶ。
-- 物理でよく出てくる $[X, Y] = XY- YX$ は、$\mathfrak{g}$ の元に別途 "ふつうの積" が定義された **普遍包絡代数** *(universal enveloping algebra)* での話。今回はそこでの話はしない。
+- 物理でよく出てくる $[X, Y] = XY- YX$ は、$\mathfrak{g}$ の元に別途 "ふつうの積" が定義された **普遍包絡代数** *(universal enveloping algebra)* での話。今回はそこまでの話はしない。
+
+### 表現
+
+$V$ を $\mathbb{C}$ 上ベクトル空間とし、$V$ から $V$ への $\mathbb{C}$ 上線形写像全体 (すなわち自己準同型, endomorphism) を $\mathrm{End}(V)$ とする。
+$x, y \in \mathrm{End} (V)$ に対し、括弧積 $[\cdot, \cdot]$ を $[x, y] = xy-yx$ と定義するとこれはリー代数となり、$\mathfrak{gl} (V)$ と書く。
 
 > **定義 (表現)**
 > $\mathfrak{g}$ をリー代数、$V$ を $\mathbb{C}$ 上ベクトル空間とする。
@@ -45,6 +79,7 @@
 ### 複素化
 
 $\mathfrak{su} (N)$ など、実数体 $\mathbb{R}$ 上のリー代数で重要なものはたくさんあるが、数学では複素リー代数を議論する方がより強力な示唆を得ることができる。
+
 そこで、以下に示す所定の手続きにより係数体を複素数に拡張することがよく (あるいは暗黙のうちに) 行われる。
 
 > **複素化 (complexification)**
@@ -100,7 +135,7 @@ $$
 ## ルート系
 
 ここでは特定のリー代数についての議論からいったん離れ、「ルート系」と呼ばれるある特別なベクトルの集合について議論する。
-後に、複素半単純リー代数から「ルート系」を構成していく様を述べていくが、その前に先に一般トンとして「ルート系」の特徴を探っておこうという訳である。
+後に、複素半単純リー代数から「ルート系」を構成していく様を述べていくが、その前に先に一般論として「ルート系」の特徴を探っておこうという訳である。
 
 > **定義 (ルート系)**
 >
@@ -116,6 +151,7 @@ $$
 > \quad (x \in V)
 > $$
 > は、$\Phi$ 全体を $\Phi$ 自身に写す。
+>
 > 4. (結晶基底条件)：任意の $\alpha, \beta \in \Phi$ について
 > $$
 > \langle \beta, \alpha \rangle \coloneqq 2 \frac{(\beta, \alpha)}{(\alpha, \alpha)}
@@ -201,6 +237,6 @@ $$
 
 ## 参考
 
-- [Brian C. Hall (2015). _Lie Groups, Lie Algebras, and Representations : An Elementary Introduction. Second Edition._.  Springer.](https://link.springer.com/book/10.1007/978-3-319-13467-3#author-0-0)
+- [Brian C. Hall (2015). _Lie Groups, Lie Algebras, and Representations : An Elementary Introduction. Second Edition._  Springer.](https://link.springer.com/book/10.1007/978-3-319-13467-3#author-0-0)
 
 - [リー代数 - YouTube](https://www.youtube.com/playlist?list=PLx3dFfRgOu4S1hzgMIa3V_jF3fuzKshx6)
