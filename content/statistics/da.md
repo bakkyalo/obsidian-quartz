@@ -6,6 +6,16 @@ DA : Discriminant Analysis
 
 ## フィッシャーの線形判別分析 (2群の場合)
 
+線形判別分析 (LDA : linear discriminant analysis) は
+- データが独立である
+- <u>等分散である</u> (共分散行列が共通である, 平均は異なっても良い)
+
+時に適用できる。[^1]
+
+[^1]: 正規性はとりあえず必須ではないが、LDA は 2 次モーメントまでのみでデータを評価しているので、極端な分布の場合は期待した結果にならないことがある。
+
+### 0. 目標
+
 データ $x$ を $w$ 方向に射影した判別スコア $z$ を定義する。
 
 $$
@@ -59,6 +69,9 @@ $$
 
 $S_W \coloneqq S_1 + S_2$ は群内共分散行列 (Within-class scatter matrix)。
 
+※データが等分散的でない (共分散行列が共通でない) 場合はこのような単純な足し算ができないため、ここで論理が破綻する。
+二次判別分析 (QDA) などを検討する。
+
 ### 問題設定
 
 以上から
@@ -74,6 +87,9 @@ $S_W \coloneqq S_1 + S_2$ は群内共分散行列 (Within-class scatter matrix)
 > $$
 
 このように設定すると、$w$ の定数倍の依存性が消えてなくなるのと、下で述べるように一般化固有値問題などのようなアルゴリズムのよく知られた問題に書き換えられるので都合が良い。
+
+$J(w)$ は **フィッシャーの線形判別関数** *(Fisher's linear discriminant)* などといい、
+右辺の分数は **レイリー商** *(Rayleigh quotient)* と呼ばれる。
 
 ### 一般化固有値問題
 
@@ -118,5 +134,75 @@ LDA では射影 $w$ の定数倍はどうでもよいので、改めて
 - 射影ベクトル $w$ は $(\mu_1 - \mu_2)$ に比例しており、 2 群の重心を結ぶ方へ向かせようとしている。
 - ただし群内の共分散の逆行列 $S_W^{-1}$ が掛けられており、散らばりが大きい方向の影響が弱まるように回転させている。
 
+## 正準判別分析 (3群以上の場合)
+
+CDA : Canonical Discriminant Analysis
+
+分けたいグループ数 $K$ が 3 以上の場合も同様に議論出来、正準判別分析などと呼ばれる。[^2]
+
+[^2]: 「正準」 (Canonical) という言葉はキリスト教の <u>聖書正典</u> (Canon)  や <u>教会法</u> (Canon law) などが語源であるとされ、「規範的」といった意味がある。
+多変量分析には <u>正準相関分析</u> (CCA : Canonical Correlation Analysis) という方法があり、数学的には CDA は CCA の一種である。
+
+差し当って、3 群以上に分類するフィッシャーの線形判別分析 (LDA) のことだと思っておけばよい。
+
+### 設定と問題
+
+$D$ 次元の $N$ 個のデータ $x_1, x_2, \dots, x_N \in \mathbb{R}^D$ を $K$ 個のクラス $C_1, C_2, \dots, C_K$ に分類したい。
+
+射影先を $H$ 次元 ($H<D$) とすると、射影変換は行列 $W \in \mathbb{R}^{D\times H}$ で表され、判別関数も行列式で表される。
+
+> **正準判別分析** (CDA : Canonical Discriminant Analysis)
+> $$
+> \text{maximize} \qquad
+> J(W) = \frac{\det (W^\prime S_B \, W)}{\det (W^\prime S_W \, W)}
+> $$
+> - クラス間共分散行列 (Between-class scatter matrix) $S_B \in \mathbb{R}^{D\times D}$
+> $$
+> S_B= \sum_{k=1}^K N_k (\mu_k - \mu) (\mu_k - \mu)^\prime
+> $$
+> - クラス内共分散行列 (Within-class scatter matrix) $S_W \in \mathbb{R}^{D\times D}$
+> $$
+> S_W = \sum_{k=1}^K \sum_{i \in C_k} (x_i - \mu_k) (x_i - \mu_k)^\prime
+> $$
+
+- $N_k$ はクラス $C_k$ のデータ数、$\mu_k = \frac{1}{N_k} \sum_{i\in C_k} x_i$ はクラス $k$ の平均ベクトル、$\mu = \frac{1}{N} \sum_{k=1}^K N_k \mu_k$ は全体平均ベクトル。
+- $S_W$ が well-defined であるためにはデータの独立性かつ等分散性が必須。
+- $\text{rank} (S_B) \leq \min (D, K-1)$
+- $\text{rank} (S_W) \leq \min (D, N-K)$
+- よって、データの数があまりにも少ない場合 ($N-K<D$ くらい)、 $S_W \in \mathbb{R}^{D\times D}$ がフルランクでなくなって $S_W^{-1}$ が存在しないなどヤバいことが起きる。SSS  (Small Sample Size) problem などと呼ばれる
+
+
+### 固有値問題
+
+2クラス分類の場合と同様に $W$ で微分して $0$ とすると一般化固有値問題が得られる。
+
+> $$S_B w_j = \lambda_j  S_W w_j$$
+
+特に $S_W$ が正則である場合、ふつうの固有値問題になる。
+
+$$
+S_W^{-1} S_B w_j = \lambda_j w_j
+$$
+
+固有値 $\lambda_j$ が大きい順に固有ベクトルを並べたものが最適な射影行列 $W$ である。ただし、ランクを上回る本数は取れない。
+
+
+## 2次判別分析 (QDA)
+
+QDA : Quadratic Discriminant Analysis
+
+QDA はフィッシャーの LDA のようにレイリー商最大化として定式化できないため、ベイズの定理に基づいて最尤推定することを考える。よって <u>正規性の仮定が必須になる</u> が、その代わりに等分散性の仮定が不要になる。(等分散を仮定すると LDA になる)
+
+- データが独立である
+- 必ずしも等分散でなくてよい (等分散だと LDA に帰着する)
+- 多変量正規分布に従う
+
+
 ## 参考
+
+
+- [PRML](https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)  (とりあえず載ってなくはないくらい)
+- [Qu, L.; Pei, Y. A Comprehensive Review on Discriminant Analysis for Addressing Challenges of Class-Level Limitations, Small Sample Size, and Robustness. _Processes_ **2024**, _12_, 1382. https://doi.org/10.3390/pr12071382](https://www.mdpi.com/2227-9717/12/7/1382)　(適当にググったらでてきたやつ)
+- [Linear discriminant analysis for the small sample size problem: an overview](https://link.springer.com/article/10.1007/s13042-013-0226-9)　(SSS 周辺が分かりやすい)
 - https://www.youtube.com/watch?v=mw2V9rhJ0lE
+
