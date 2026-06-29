@@ -10,7 +10,7 @@ FA : Factor Analysis
 
 ## 問題設定
 
-$D$ 次元の $N$ 個の観測データ $x \in \mathbb{R}^{D\times N}$ が、少数の潜在因子 (**共通因子** : *common factor*) $f \in \mathbb{R}^M \ (M \ll D)$ とノイズ (**独自因子** : *unique factor*) $\varepsilon\in \mathbb{R}^D$ によって線形に生成されているというモデルを仮定する。
+$D$ 次元の $N$ 個の観測データ $x \in \mathbb{R}^{D\times N}$ が、<u>少数</u> の潜在因子 (**共通因子** : *common factor*) $f \in \mathbb{R}^M \ (M \ll D)$ とノイズ (**独自因子** : *unique factor*) $\varepsilon\in \mathbb{R}^D$ によって線形に生成されているというモデルを仮定する。
 
 > **因子分析** *(FA : Factor Analysis)*
 > $$
@@ -23,10 +23,10 @@ $D$ 次元の $N$ 個の観測データ $x \in \mathbb{R}^{D\times N}$ が、少
 
 $\Lambda \in \mathbb{R}^{D\times M}$ を **因子負荷量** *(factor loading)* という。
 
-これにさらに制約を加えて、色々なモデルができる。
+これにさらに制約を加えて、色々なモデルが定義される。
 
-- 共通因子間も無相関 ($\Phi = I_M$) → 直交モデル
-- 共通因子間の相関を許す ($\Phi \neq I_M$) → 斜交モデル
+- 共通因子 $f$ 間も無相関 ($\Phi = I_M$) → 直交モデル
+- 共通因子 $f$ 間の相関を許す ($\Phi \neq I_M$) → 斜交モデル
 - $\Lambda$ の一部を人為的に固定できる → **確証的因子分析** *(CFA : Confirmatory Factor Analysis)*
 
 CFA に対して、$\Lambda$ のすべてを未知数として解くモデルを **探索的因子分析** *(EFA : Exploratory Factor Analysis)* という。[^2]
@@ -45,4 +45,32 @@ CFA に対して、$\Lambda$ のすべてを未知数として解くモデルを
 ### 直交モデル
 
 ### 斜交モデル
+
+## R の例
+
+### `factanal()`
+
+https://stat.ethz.ch/R-manual/R-patched/library/stats/html/factanal.html
+
+標準に `factanal` がある。
+最尤法。
+
+### `psych::fa()`
+
+https://cran.r-project.org/web/packages/psych/index.html
+
+`psych` パッケージに `fa()` がある。
+オプションの分量がエグい。
+
+```r
+library(psych)
+
+result <- fa(
+	r = data,
+	nfactors = 3,
+	rotate = "promax"	# 斜交モデル
+	fm = ""				# factor method
+)
+```
+
 
