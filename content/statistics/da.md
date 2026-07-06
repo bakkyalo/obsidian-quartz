@@ -125,10 +125,12 @@ $$
 
 LDA では射影 $w$ の定数倍はどうでもよいので、改めて
 
-> $$
-> w \propto S_W^{-1} (\mu_1-\mu_2) 
-> \label{eq:fisher_simplify}
-> $$
+$$
+\begin{equation}
+\label{eq:fisher-simplify}
+w \propto S_W^{-1} (\mu_1-\mu_2) 
+\end{equation}
+$$
 
 と書ける。
 
@@ -179,7 +181,9 @@ $D$ 次元の $N$ 個のデータ $x_1, x_2, \dots, x_N \in \mathbb{R}^D$ を $K
 
 2クラス分類の場合と同様に $W$ で微分して $0$ とすると一般化固有値問題が得られる。
 
-> $$S_B w_j = \lambda_j  S_W w_j$$
+> $$
+> S_B w_j = \lambda_j  S_W w_j
+> $$
 
 特に $S_W$ が正則である場合、ふつうの固有値問題になる。
 
@@ -248,11 +252,15 @@ $$
 
 LDA はさらに、共分散性を仮定するのであった。つまり
 
-> $$\Sigma_k = \Sigma \quad (\forall k=1, 2, \dots, K)$$
+> $$
+> \Sigma_k = \Sigma \quad (\forall k=1, 2, \dots, K)
+> $$
 
 あるいは
 
-> $$x \mid C_k \sim N(\mu_k, \Sigma)$$
+> $$
+> x \mid C_k \sim N(\mu_k, \Sigma)
+> $$
 
 を仮定する。すると最大化すべき関数はさらに簡略され[^4]
 
@@ -289,7 +297,7 @@ $$
 	w \propto \Sigma^{-1} (\mu_1 - \mu_2)
 $$
 
-となって、$\eqref{eq:fisher_simplify}$ と同じ形になる。
+となって、$\eqref{eq:fisher-simplify}$ と同じ形になる。
 
 $S_W$ と $\Sigma$ は似たようなもんである (要加筆)。
 
