@@ -125,12 +125,12 @@ $$
 
 LDA では射影 $w$ の定数倍はどうでもよいので、改めて
 
+<a id="fisher-simplify"></a>
 $$
-\begin{equation}
-\label{eq:fisher-simplify}
-w \propto S_W^{-1} (\mu_1-\mu_2) 
-\end{equation}
+w \propto S_W^{-1} (\mu_1-\mu_2)  \tag{1}
 $$
+
+^eq:fisher-simplify
 
 と書ける。
 
@@ -297,7 +297,7 @@ $$
 	w \propto \Sigma^{-1} (\mu_1 - \mu_2)
 $$
 
-となって、$\eqref{eq:fisher-simplify}$ と同じ形になる。
+となって、<a href="#fisher-simplify">(1)</a> と同じ形になる。
 
 $S_W$ と $\Sigma$ は似たようなもんである (要加筆)。
 
@@ -307,5 +307,6 @@ $S_W$ と $\Sigma$ は似たようなもんである (要加筆)。
 - [PRML](https://www.microsoft.com/en-us/research/wp-content/uploads/2006/01/Bishop-Pattern-Recognition-and-Machine-Learning-2006.pdf)  (とりあえず載ってなくはないくらい)
 - [Qu, L.; Pei, Y. A Comprehensive Review on Discriminant Analysis for Addressing Challenges of Class-Level Limitations, Small Sample Size, and Robustness. _Processes_ **2024**, _12_, 1382. https://doi.org/10.3390/pr12071382](https://www.mdpi.com/2227-9717/12/7/1382)　(適当にググったらでてきたやつ)
 - [Linear discriminant analysis for the small sample size problem: an overview](https://link.springer.com/article/10.1007/s13042-013-0226-9)　(SSS 周辺が分かりやすい)
+- [9.2.8 - Quadratic Discriminant Analysis (QDA) | STAT 897D](https://online.stat.psu.edu/stat857/node/80/)
 - https://www.youtube.com/watch?v=mw2V9rhJ0lE
 

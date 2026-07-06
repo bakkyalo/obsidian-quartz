@@ -2,6 +2,12 @@
 
 - Obsidan + Quartz + GitHub Pages
 
+## KaTeX
+
+KaTeX は `\label` や `\eqref` に対応してないので
+
+
+
 ## Obsidian Plugins
 
 - Git
