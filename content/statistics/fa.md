@@ -12,7 +12,7 @@ FA : Factor Analysis
 
 $D$ 次元の $N$ 個の観測データ $x \in \mathbb{R}^{D\times N}$ が、<u>少数</u> の潜在因子 (**共通因子** : *common factor*) $f \in \mathbb{R}^M \ (M \ll D)$ とノイズ (**独自因子** : *unique factor*) $\varepsilon\in \mathbb{R}^D$ によって線形に生成されているというモデルを仮定する。
 
-> **因子分析** *(FA : Factor Analysis)*
+> [!info] **因子分析** *(FA : Factor Analysis)*
 > $$
 > x = \Lambda f + \varepsilon
 > $$
@@ -42,9 +42,88 @@ CFA に対して、$\Lambda$ のすべてを未知数として解くモデルを
 - 因子が多すぎる
 - 観測変数間に多重共線性 (マルチコ) がある
 
-### 直交モデル
 
-### 斜交モデル
+### 理論共分散行列
+
+理論的な共分散行列を $\Sigma \coloneqq \mathbb{E} [xx^\prime]$ とすると、
+$f$ と $\varepsilon$ の独立性の仮定などから
+$$
+\begin{align*}
+\Sigma 
+  &= \mathbb[(\Lambda f+\varepsilon)(\Lambda f + \varepsilon)^\prime]\\
+  &= \Lambda \,\mathbb{E} [ff^\prime] \Lambda^\prime 
+	  + \mathbb{E}[\varepsilon\varepsilon^\prime]\\
+  &= \Lambda \Phi \Lambda^\prime + \Psi
+\end{align*}
+$$
+
+### 回転の不定性
+
+rotational indeterminacy
+
+因子分析モデル
+$$
+x = \Lambda f + \varepsilon
+$$
+は、$\Lambda, f$ が一意に定まらない。
+例えば、$M$ 次直交行列 $T \in O(M)$ を任意にとって[^arb]、
+新たな因子負荷量 $\Lambda^*$ と共通因子 $f^*$ を
+$\Lambda^* \coloneqq \Lambda T, \, f^* \coloneqq T^\prime f$ と定義すると、
+モデル式は
+
+[^arb]: 実は、 $T$ は正則行列 $T \in GL(M, \mathbb{R})$ でさえあればこの後の議論をある程度続けられるが、
+後に説明する varimax および promax では結局直交行列であることが要求されるので、
+$T$ は最初から 直交行列であるとしている。
+
+$$
+\begin{align*}
+x &= \Lambda f + \varepsilon\\
+  &= (\Lambda^* T^\prime) (T f^*) + \varepsilon\\
+  &= \Lambda^* f^* + \varepsilon
+\end{align*}
+$$
+のように同じ形の式に従う。
+共通因子 $f^*$ の期待値は $\mathbb{E} [f^*] = 0$ のままであり、
+共分散行列 $\Phi^* \coloneqq \mathbb{E} [f^* (f^*)^\prime]$ は
+$$
+\Phi^*
+  = \mathbb{E} [T^\prime f (T^\prime f)^\prime]
+  = T^\prime \mathbb{E} [ff^\prime] T
+  = T^\prime \Phi T
+$$
+のように変換される。しかし、理論共分散行列 $\Sigma$ はこの変換によって
+$$
+\begin{align*}
+\Sigma^*
+	&\coloneqq \Lambda^* \Phi^*(\Lambda^*)^\prime + \Psi \\
+	&= (\Lambda T) (T^\prime \Phi T) (\Lambda T)^\prime + \Psi \\
+	&= \Lambda \Phi T^\prime + \Psi\\
+	&= \Sigma
+\end{align*}
+$$
+となり、変換 $T$ によってデータの平均および共分散構造が保たれる。
+
+すなわち、因子分解モデルは直交行列 $T$ だけの任意性を持っており、
+これを **回転の不定性** *(rotational indeterminacy)* と呼ぶ。
+
+逆にいうと、我々は計算結果として出てくる共通因子 $f$ が分かりやすくなるように
+直交行列 $T \in O(M)$ を好きに選べるということである。
+
+とはいうものの、歴史的・伝統的に良いとされる直交変換が知られており、
+それが以下の「直交因子モデル」 節で説明する varimax 回転である。
+
+### 直交因子モデル
+
+直交モデルは、共通因子 $f$ が無相関かつ標準化されているという仮定を新たに課す。
+
+> - $
+> \mathbb{E} [f] = 0, \,
+> \mathbb{E} [ff^\prime] = I_M
+> $
+
+
+
+### 斜交因子モデル
 
 ## R の例
 
