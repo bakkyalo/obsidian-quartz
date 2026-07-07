@@ -50,7 +50,7 @@ $f$ と $\varepsilon$ の独立性の仮定などから
 $$
 \begin{align*}
 \Sigma 
-  &= \mathbb[(\Lambda f+\varepsilon)(\Lambda f + \varepsilon)^\prime]\\
+  &= \mathbb{E} [(\Lambda f+\varepsilon)(\Lambda f + \varepsilon)^\prime]\\
   &= \Lambda \,\mathbb{E} [ff^\prime] \Lambda^\prime 
 	  + \mathbb{E}[\varepsilon\varepsilon^\prime]\\
   &= \Lambda \Phi \Lambda^\prime + \Psi
@@ -109,8 +109,24 @@ $$
 逆にいうと、我々は計算結果として出てくる共通因子 $f$ が分かりやすくなるように
 直交行列 $T \in O(M)$ を好きに選べるということである。
 
-とはいうものの、歴史的・伝統的に良いとされる直交変換が知られており、
-それが以下の「直交因子モデル」 節で説明する varimax 回転である。
+
+### 単純構造
+
+しかし、好きに選べるとはいえ、何を基準にしてどう選べばよいのであろうか？
+
+心理学者の [[#^thurstone1947|Thurstone (1947)]] (p.335 周辺) は、分かりやすい共通因子 $f$ が満たすべき理想的な性質として、 **単純構造** *(simple structure)* という概念を定義した。
+
+
+> [!cite] サーストンの単純構造
+> 1. **Each row** of the oblique factor matrix $V$ should have at least one zero.
+> 2. For **each column** $p$ of the factor matrix $V$, there should be a distinct set of $r$ linearly independent tests whose factor loadings $v_{jp}$ are zero.
+> 3. For **every pair** of columns of $V$, there should be several tests whose entries $v_{jp}$ vanish in one column but not in the other.
+> 4.  For **every pair** of columns of $V$, a large proportion of the tests should have zero entries in both columns. This applies to factor problems with four or five or more common factors.
+> 5. For **every pair** of columns, there should preferably be only a small number of tests with non-vanishing entries in both columns.
+
+
+そして、歴史的・伝統的に単純構造を実現できるとされる直交変換が知られており、
+その 1 つが以下の「直交因子モデル」 節で説明する varimax 回転である。
 
 ### 直交因子モデル
 
@@ -152,4 +168,9 @@ result <- fa(
 )
 ```
 
+
+## 参考
+
+- Thurstone, L.L. (1947) Multiple Factor Analysis. University of Chicago, Chicago. ^thurstone1947
+- [6  因子分析](https://www2.kobe-u.ac.jp/~bunji/files/lecture/MVA/html/chapters/06_factor_analysis.html)
 
